@@ -1,0 +1,9 @@
+<html>
+<body>
+  <ul>
+    {% for bank in banks %}
+      <li><a href="/banks/{{ bank.id }}/details/">{{ bank.name }}</a> {{ bank.inst_num }}</li>
+    {% endfor %}
+  </ul>
+</body>
+</html>

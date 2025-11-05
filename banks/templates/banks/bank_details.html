@@ -1,0 +1,15 @@
+<html>
+<body>
+  <h1>{{ bank.name }}</h1>
+  <p>{{ bank.swift_code }}</p>
+  <p>{{ bank.inst_num }}</p>
+  <p>{{ bank.description }}</p>
+
+  <table border="1">
+    <tr><th>Name</th><th>Transit</th><th>Address</th></tr>
+    {% for b in branches %}
+    <tr><td>{{ b.name }}</td><td>{{ b.transit_num }}</td><td>{{ b.address }}</td></tr>
+    {% endfor %}
+  </table>
+</body>
+</html>

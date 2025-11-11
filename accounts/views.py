@@ -76,6 +76,22 @@ class LoginView(View):
             return redirect('/accounts/profile/view/')
         else:
             return render(request, 'accounts/login.html', {'error': 'Username or password is invalid'})
+        
+        
+
+# Custom Login Required Mixin
+class LoginRequMixin:
+    def dispatch(self, request, *args, **kwargs):
+        if not self.request.user.is_authenticated:
+            return redirect('/accounts/login/')
+        return super().dispatch(request, *args, **kwargs)
+    
+    
+class DashboardView(LoginRequMixin , View):
+    def get(self , request):
+        return HttpResponse("welcomto my dashbord!")
+    
+
 
 
 class LogoutView(View):
